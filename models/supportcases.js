@@ -5,6 +5,7 @@ module.exports = sq.define('supportcases', {
     title: sequelize.STRING,
     description: sequelize.TEXT,
     manpage: sequelize.STRING,
+    experience: sequelize.STRING,
     channelID: sequelize.STRING,
     embedID: sequelize.STRING,
     isOpen: sequelize.STRING
