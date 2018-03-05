@@ -1,5 +1,6 @@
 const { Command } = require('klasa');
 module.exports = class extends Command {
+
     constructor(...args) {
         super(...args, {
             name: 'addrole',
@@ -11,13 +12,14 @@ module.exports = class extends Command {
             runIn: ['text'],
             guildOnly: true,
             usage: '<role:rolename>'
-        })
+        });
     }
 
     async run(message, [role]) {
-        const existsRole = await this.client.db.roles.findOne({ where: { roleID: role.id }});
+        const existsRole = await this.client.db.roles.findOne({ where: { roleID: role.id } });
         if (!existsRole) return message.reply(`Sorry, that wasn't a valid role.`);
         message.member.roles.add(role);
         message.reply(`You now have the **${role.name}** role!`);
     }
-}
+
+};
