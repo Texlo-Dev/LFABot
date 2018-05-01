@@ -10,8 +10,8 @@
   "license": "GPL-3.0",
   "dependencies": {
     "discord.js": "github:hydrabolt/discord.js#master",
-    "klasa": "github:dirigeants/klasa",
-    "sequelize": "^4.35.2",
+    "klasa": "github:dirigeants/klasa#master",
+    "sequelize": "^4.37.6",
     "sqlite3": "^3.1.13"
   },
   "devDependencies": {},

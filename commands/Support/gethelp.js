@@ -58,7 +58,7 @@ module.exports = class extends Command {
             .setFooter(`Ticket #${res.caseNum}`);
         const m = await this.client.channels.get(createchannel.id).send({ embed });
         const embedID = await this.client.db.scases.update({ embedID: m.id }, { where: { caseNum: res.caseNum } });
-        this.client.channels.get('329783240535703553').send(`<@307140805213290506> There is a person waiting for help in ${createchannel}.`);
+        this.client.channels.get('329783240535703553').send(`<@&307140805213290506> There is a person waiting for help in ${createchannel}.`);
         return message.reply(`Your ticket has been created in ${createchannel}.`);
     }
 

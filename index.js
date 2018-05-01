@@ -6,7 +6,7 @@ Client.defaultPermissionLevels
 
 const client = new Client({
     fetchAllMembers: true,
-    prefix: 'l/',
+    prefix: '/',
     cmdEditing: true,
     typing: false,
     readyMessage: (client) => `${client.user.tag}, Ready to take your orders!`

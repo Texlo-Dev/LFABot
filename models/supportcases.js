@@ -1,4 +1,4 @@
-const { sequelize, sq } = require('./rolesbase');
+const { sequelize, sq } = require('./scbase');
 module.exports = sq.define('supportcases', {
     userID: sequelize.STRING,
     caseNum: sequelize.INTEGER,
