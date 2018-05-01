@@ -23,10 +23,8 @@ module.exports = class extends Command {
             .setFooter(this.client.user.username)
             .setAuthor(`Ticket #${ticket.get('caseNum')}`, this.client.user.displayAvatarURL())
             .addField('Member', (await this.client.users.fetch(ticket.get('userID'))).tag)
-            .addField('Title', ticket.get('title'))
-            .addField('Description', ticket.get('description'))
-            .addField('Experience with Linux:', ticket.get('experience'))
-            .addField('Man Page', this.client.users.get(ticket.get('manpage')) ? (await this.client.users.fetch(ticket.get('manpage'))).tag : 'None')
+            .addField('Subject', ticket.get('subject'))
+            .addField('Acting Manpage', this.client.users.get(ticket.get('manpage')) ? (await this.client.users.fetch(ticket.get('manpage'))).tag : 'None')
             .addField('Is Open', ticket.get('isOpen'));
         message.channel.send(embed);
     }
