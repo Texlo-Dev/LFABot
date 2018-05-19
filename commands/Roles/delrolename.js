@@ -19,7 +19,7 @@ module.exports = class extends Command {
     async run(message, [role]) {
         const existsRole = await this.client.db.roles.findOne({ where: { roleID: role.id } });
         if (!existsRole) return message.reply(`This role is not currently in the database.`);
-        const res = await this.client.db.roles.destroy({ roleID: role.id });
+        const res = await this.client.db.roles.destroy({ where: { roleID: role.id } });
         if (!res) return message.reply('Sorry, there was an error completing this operation.');
         return message.channel.send('Successfully deleted that role to the distro list.');
     }
