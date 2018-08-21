@@ -1,4 +1,6 @@
-const { Monitor } = require('klasa');
+const {
+	Monitor
+} = require('klasa');
 
 module.exports = class extends Monitor {
 
@@ -18,14 +20,19 @@ module.exports = class extends Monitor {
 	}
 
 	async run(message) {
-		let r = this.client.settings.pingAvailable;
-		if (!r) return;
-		if (!message.content.includes(`<@&${r}>`)) return;
-        try {
-            await message.guild.roles.get(r).setMentionable(false);
-        } catch (ex) {
-            message.reply(ex.toString());
-        }
+		let rs = this.client.settings.pingAvailable;
+		if (!rs.length) return;
+		for (let r of rs) {
+			if (!message.content.includes(`<@&${r}>`)) return;
+			try {
+				await message.guild.roles.get(r).setMentionable(false);
+			} catch (ex) {
+				message.reply(ex.toString());
+			}
+			await this.client.settings.update('pingAvailable', r, {
+				action: 'remove'
+			});
+		}
 	}
 
 	async init() {

@@ -9,7 +9,7 @@ Client.defaultPermissionLevels
     });
 
 Client.defaultClientSchema.add('pingAvailable', 'string', {
-    array: false
+    array: true
 });
 
 const client = new Client({
